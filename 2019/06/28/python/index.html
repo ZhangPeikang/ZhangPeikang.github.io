@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="在Ubuntu中安装python中所遇到的一些常见问题以及解决方案">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-28T08:23:34.986Z">
+<meta property="og:updated_time" content="2019-06-28T08:25:43.019Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python">
 <meta name="twitter:description" content="在Ubuntu中安装python中所遇到的一些常见问题以及解决方案">
@@ -91,12 +91,11 @@
 
 <p>因为Ubuntu系统中不同于window，初次使 用Ubuntu难免遇到各种各种的问题</p>
 <p>①提示各种没有权限</p>
-<p>解决方法：在每条命令行前加入“sudo”即使用最高权限来执行命令，输入账号的密码后即可执行</p>
+<h1 id="提示各种没有权限"><a href="#提示各种没有权限" class="headerlink" title="提示各种没有权限"></a>提示各种没有权限</h1><p>解决方法：在每条命令行前加入“sudo”即使用最高权限来执行命令，输入账号的密码后即可执行</p>
 <p>②
 linux系统安装软件是有时会碰到“dpkg 被中断,您必须手工运行 sudo dpkg –configure -a解决此问题”，然而按照提示运行却并没能很好的解决问题。其实导致这个问题的主要原因是因为/var/lib/dpkg/updates文件下的文件有问题，可能是其他软件安装过程或是其他原因导致的，这里删除掉然后重建即可。</p>
-<p>sudo rm /var/lib/dpkg/updates/*</p>
-<p>sudo apt-get update</p>
-<p>sudo apt-get upgrade</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/dpkg/updates/*</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
 <p>解释：[<em>]sudo apt-get update指令会重新建立这些资料，所以不必担心删除后会出问题；<br>[</em>]sudo apt-get upgrade会更新你的电脑里面已安装的软件的明细，根据软件的明细更新软件到最新版。<br>PS：“dpkg ”是“Debian Packager ”的简写。为 “Debian” 专门开发的套件管理系统，方便软件的安装、更新及移除。所有源自“Debian”的“Linux ”发行版都使用 “dpkg”另外该行为是删除所有update文件并且重新下载更新，可能需要比较多的时间，请耐心等待。</p>
 <p>③</p>
 <p>Traceback (most recent call last):</p>
@@ -110,7 +109,7 @@ linux系统安装软件是有时会碰到“dpkg 被中断,您必须手工运行
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/28/python/" data-id="cjxftyjgj0000rskgkie5okw8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/28/python/" data-id="cjxftz5800001vkkg2mne29qx" class="article-share-link">Share</a>
       
       
     </footer>
