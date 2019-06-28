@@ -7,14 +7,17 @@
   
   <title>python | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="在Ubuntu中安装python中所遇到的一些常见问题以及解决方案">
+<meta property="og:type" content="article">
 <meta property="og:title" content="python">
 <meta property="og:url" content="http://yoursite.com/2019/06/28/python/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在Ubuntu中安装python中所遇到的一些常见问题以及解决方案">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-28T05:48:56.060Z">
+<meta property="og:updated_time" content="2019-06-28T08:23:34.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python">
+<meta name="twitter:description" content="在Ubuntu中安装python中所遇到的一些常见问题以及解决方案">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -83,11 +86,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>在Ubuntu中安装python中所遇到的一些常见问题以及解决方案</p>
+<a id="more"></a>
+
+<p>因为Ubuntu系统中不同于window，初次使 用Ubuntu难免遇到各种各种的问题</p>
+<p>①提示各种没有权限</p>
+<p>解决方法：在每条命令行前加入“sudo”即使用最高权限来执行命令，输入账号的密码后即可执行</p>
+<p>②
+linux系统安装软件是有时会碰到“dpkg 被中断,您必须手工运行 sudo dpkg –configure -a解决此问题”，然而按照提示运行却并没能很好的解决问题。其实导致这个问题的主要原因是因为/var/lib/dpkg/updates文件下的文件有问题，可能是其他软件安装过程或是其他原因导致的，这里删除掉然后重建即可。</p>
+<p>sudo rm /var/lib/dpkg/updates/*</p>
+<p>sudo apt-get update</p>
+<p>sudo apt-get upgrade</p>
+<p>解释：[<em>]sudo apt-get update指令会重新建立这些资料，所以不必担心删除后会出问题；<br>[</em>]sudo apt-get upgrade会更新你的电脑里面已安装的软件的明细，根据软件的明细更新软件到最新版。<br>PS：“dpkg ”是“Debian Packager ”的简写。为 “Debian” 专门开发的套件管理系统，方便软件的安装、更新及移除。所有源自“Debian”的“Linux ”发行版都使用 “dpkg”另外该行为是删除所有update文件并且重新下载更新，可能需要比较多的时间，请耐心等待。</p>
+<p>③</p>
+<p>Traceback (most recent call last):</p>
+<p>  File “/usr/bin/pip”, line 9, in <module></module></p>
+<pre><code>from pip import main</code></pre><p>sudo gedit /usr/bin/pip<br>         这时打开了pip文件，修改</p>
+<p>from pip import main<br>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    sys.exit(main()) </p>
+<p>为</p>
+<p>from pip import <strong>main</strong>  //修改</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:  </p>
+<pre><code>sys.exit(__main__._main())//修改</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/28/python/" data-id="cjxfqxwz50001o0kg75yrilzf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/28/python/" data-id="cjxftyjgj0000rskgkie5okw8" class="article-share-link">Share</a>
       
       
     </footer>
